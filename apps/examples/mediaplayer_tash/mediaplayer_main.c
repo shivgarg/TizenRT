@@ -23,6 +23,7 @@
 #include <apps/shell/tash.h>
 #include "mediaplayer.h"
 
+
 #include <sys/socket.h>
 #include <dm/dm_connectivity.h>
 #include <dm/dm_error.h>
@@ -48,11 +49,13 @@ void WiFi_Link_Down(void)
 	printf("\n[WiFi] Disconnected!\n");
 }
 
+
 static void usage(char *cmd)
 {
 	printf("Usage: %s [option] [filename1] [filename2]\n", cmd);
 	printf("\t-p: Playing\n");
 	printf("\t-r: Recording\n");
+
 	printf("\t-h: Playing HTTP Streaming\n");
 	printf("\n");
 }
@@ -155,10 +158,12 @@ static int media_player_tash_cb(int argc, char **argv)
 		return 0;
 	}
 
+
 	while ((option = getopt(argc, argv, "prh")) != ERROR) {
 		switch (option) {
 		case 'p':
 			media_init(NULL);
+
 			music = media_open(argv[2], MEDIA_OP_PLAYBACK, MEDIA_TYPE_PCM);
 			media_play(music, false);
 			printf("Playing started(with Pause/Resume) [%s]\n", argv[2]);
@@ -177,18 +182,21 @@ static int media_player_tash_cb(int argc, char **argv)
 
 		case 'r':
 			media_init(NULL);
+
 			music = media_open(argv[2], MEDIA_OP_RECORD, MEDIA_TYPE_PCM);
 			media_record(music);
 			printf("Recording 7secs started [%s]\n", argv[2]);
 			sleep(7);
 			printf("Done\n");
 			media_stop(music);
+
 			media_close(music);
 			media_shutdown();
 			break;
 
 		case 'h':
 			http_streaming();
+
 			break;
 
 		default:
@@ -197,8 +205,6 @@ static int media_player_tash_cb(int argc, char **argv)
 			break;
 		}
 	}
-
-	
 
 	return 0;
 }
