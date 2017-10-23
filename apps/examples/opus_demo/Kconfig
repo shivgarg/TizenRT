@@ -1,0 +1,12 @@
+#
+# For a description of the syntax of this configuration file,
+# see kconfig-language at https://www.kernel.org/doc/Documentation/kbuild/kconfig-language.txt
+#
+
+config EXAMPLES_OPUSDEMO
+	bool "opus codec demo"
+	default y 
+	---help---
+		Enable opus codec demo
+
+
