@@ -35,9 +35,9 @@
 #ifndef CELT_H
 #define CELT_H
 
-#include "/home/jarvisjang/workspace/TizenRT_/external/libopus/include/opus_types.h"
-#include "/home/jarvisjang/workspace/TizenRT_/external/libopus/include/opus_defines.h"
-#include "/home/jarvisjang/workspace/TizenRT_/external/libopus/include/opus_custom.h"
+#include "opus_types.h"
+#include "opus_defines.h"
+#include "opus_custom.h"
 #include "entenc.h"
 #include "entdec.h"
 #include "arch.h"
