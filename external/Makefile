@@ -190,4 +190,6 @@ ifeq ($(CONFIG_ENABLE_IOTJS),y)
 	$(Q) rm -rf $(IOTJS_ROOT_DIR)/build
 endif
 
+-include libopus$(DELIM)Make.defs
+
 -include Make.dep
