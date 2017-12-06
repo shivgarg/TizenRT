@@ -213,6 +213,8 @@
 
 #define I2S_SEND(d, b, c, a, t) ((d)->ops->i2s_send(d, b, c, a, t))
 
+#define I2S_STOP(d)		((d)->ops->i2s_stop(d))
+
 /****************************************************************************
  * Name: I2S_ERR_CB_REG
  *
@@ -263,6 +265,8 @@ struct i2s_ops_s {
 	/* Errors handling methods */
 
 	CODE int (*i2s_err_cb_register)(FAR struct i2s_dev_s *dev, i2s_err_cb_t cb, FAR void *arg);	
+	/* Generic stop method */
+	CODE int (*i2s_stop)(FAR struct i2s_dev_s *dev);
 };
 
 /* I2S private data.  This structure only defines the initial fields of the

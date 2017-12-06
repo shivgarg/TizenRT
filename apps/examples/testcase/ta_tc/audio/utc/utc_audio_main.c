@@ -798,7 +798,7 @@ static void utc_audio_pcm_writei_n(void)
 	ssize_t size;
 	char *buffer;
 
-	g_pcm = pcm_open(0, 0, PCM_IN, NULL);
+	g_pcm = pcm_open(0, 0, PCM_OUT, NULL);
 	TC_ASSERT_GT("pcm_writei", pcm_get_file_descriptor(g_pcm), 0);
 
 	size = pcm_frames_to_bytes(g_pcm, pcm_get_buffer_size(g_pcm));
